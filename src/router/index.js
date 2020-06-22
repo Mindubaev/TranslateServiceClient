@@ -1,22 +1,45 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import RegistrationForm from '../components/RegistrationForm'
+import PersonForm from '../components/PersonForm'
+import ProjectsForm from '../components/ProjectsForm'
+import DocumentEditor from '../components/DocumentEditor'
+import AllProjectsForm from '../components/AllProjectsForm'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '*',
     name: 'Home',
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/registration',
+    name: 'RegistrationForm',
+    component: RegistrationForm
+  },
+  {
+    path: '/profile',
+    name: 'PersonForm',
+    component: PersonForm
+  },
+  {
+    path: '/OwnProjects',
+    name: 'ProjectsForm',
+    component: ProjectsForm
+  },
+  {
+    path: '/projects',
+    name: 'AllProjectsForm',
+    component: AllProjectsForm
+  },
+  {
+    path:'/project/:projectId/document/:documentId',
+    name:'DocumentEditor',
+    props:true,
+    component:DocumentEditor
   }
 ]
 
